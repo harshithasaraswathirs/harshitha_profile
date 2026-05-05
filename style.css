@@ -1,0 +1,718 @@
+
+:root {
+  --primary: #1a365d;        /* Deep navy — main brand colour */
+  --accent: #c8973a;         /* Gold — highlights and CTAs */
+  --accent-light: #f0c060;   /* Lighter gold for hover states */
+  --text: #1a1a2e;           /* Near-black for body text */
+  --text-muted: #6b7a8d;     /* Grey for secondary text */
+  --bg: #f8f7f4;             /* Warm off-white background */
+  --bg-section: #f0ece4;     /* Slightly darker for alternating sections */
+  --surface: #ffffff;        /* Pure white for cards */
+  --border: #e2ddd5;         /* Subtle border colour */
+  --shadow: 0 4px 24px rgba(26,54,93,0.10);
+  --shadow-lg: 0 12px 48px rgba(26,54,93,0.16);
+  --radius: 16px;            /* Consistent border-radius */
+  --radius-sm: 8px;
+  --font-display: 'Playfair Display', Georgia, serif;  /* For headings */
+  --font-body: 'DM Sans', system-ui, sans-serif;       /* For body text */
+  --transition: 0.3s ease;   /* Consistent animation speed */
+}
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  /* box-sizing: border-box — padding doesn't increase element width.
+     Without this, a 300px box with 20px padding = 340px wide. With it = 300px. */
+}
+
+html {
+  scroll-behavior: smooth;
+  /* scroll-behavior: smooth — animated scrolling when clicking anchor links (#about etc.) */
+}
+
+body {
+  font-family: var(--font-body);  /* Using our CSS variable */
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.7;               /* Space between lines for readability */
+  overflow-x: hidden;             /* Prevent horizontal scroll */
+}
+
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  color: var(--primary);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;       /* Remove underline from all links */
+  color: var(--accent);
+  transition: color var(--transition);  /* Smooth colour change on hover */
+}
+
+a:hover {
+  color: var(--accent-light);
+}
+
+/* ============================================================
+   UTILITY CLASSES (Custom — like Bootstrap but ours)
+============================================================ */
+.section-pad {
+  padding: 100px 0;
+}
+
+.bg-section {
+  background-color: var(--bg-section);
+}
+
+/* ============================================================
+   SECTION HEADERS — Reused across all sections
+============================================================ */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-tag {
+ 
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;      /* Space between letters */
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  /* clamp(min, preferred, max) — responsive font size without media queries.
+     clamp(2rem, 4vw, 3rem) = at least 2rem, scales with viewport, max 3rem */
+  color: var(--primary);
+  margin-bottom: 0;
+}
+
+
+#mainNav {
+  background: transparent;
+  transition: background var(--transition), box-shadow var(--transition);
+  padding: 20px 0;
+}
+
+/* JavaScript adds this class when user scrolls down (see script.js) */
+#mainNav.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);          /* Frosted glass effect */
+  box-shadow: var(--shadow);
+  padding: 12px 0;
+}
+
+#mainNav .navbar-brand {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+#mainNav .nav-link {
+  color: var(--text);
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+  position: relative;
+}
+
+#mainNav .nav-link:hover,
+#mainNav .nav-link.active {
+  color: var(--accent);
+  background: rgba(200, 151, 58, 0.08);
+}
+
+
+#hero {
+  min-height: 100vh;              /* Full screen height */
+  display: flex;
+  align-items: center;            /* Vertically center content */
+  position: relative;             /* Needed for absolute-positioned child */
+  overflow: hidden;
+  padding-top: 80px;              /* Account for fixed navbar */
+}
+
+.hero-bg-shape {
+ 
+  position: absolute;
+  top: -10%;
+  right: -15%;
+  width: 60vw;
+  height: 80vh;
+  background: linear-gradient(135deg, rgba(26,54,93,0.05) 0%, rgba(200,151,58,0.08) 100%);
+  border-radius: 50% 30% 60% 40%;
+  /* Different border-radius on each corner creates organic blob shape */
+  z-index: 0;
+  animation: blobFloat 8s ease-in-out infinite;
+}
+
+/* 📚 LESSON: @keyframes — defines a CSS animation
+   from = start state, to = end state.
+   Or use 0%, 25%, 50%, 75%, 100% for multi-step animations. */
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33%       { transform: translate(-20px, 15px) rotate(5deg); }
+  66%       { transform: translate(10px, -10px) rotate(-3deg); }
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;   /* Stacks above the background blob */
+}
+
+.hero-tag {
+  display: inline-block;
+  background: rgba(200, 151, 58, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(200, 151, 58, 0.3);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 24px;
+}
+
+.hero-name {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin-bottom: 36px;
+  line-height: 1.8;
+}
+
+
+.btn-primary-custom {
+  background: linear-gradient(135deg, var(--primary), #2d5a9e);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: all var(--transition);
+  box-shadow: 0 4px 16px rgba(26,54,93,0.25);
+}
+
+.btn-primary-custom:hover {
+  transform: translateY(-2px);   /* Lifts button on hover */
+  box-shadow: 0 8px 24px rgba(26,54,93,0.35);
+  color: white;
+}
+
+.btn-outline-custom {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all var(--transition);
+}
+
+.btn-outline-custom:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   HERO CARD (Profile photo + stats)
+============================================================ */
+.hero-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+.profile-photo-wrapper {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  border: 4px solid var(--accent);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* Cover = fills box without stretching, crops if needed */
+}
+
+.initials-fallback {
+  /* Shown when profile.jpg doesn't exist yet */
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+}
+
+.hero-card-info {
+  display: flex;
+  justify-content: space-around;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat small {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stat-icon {
+  font-size: 1.8rem;
+  line-height: 2rem;
+  display: block;
+}
+
+/* ============================================================
+   ABOUT SECTION
+============================================================ */
+.about-text {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: all var(--transition);
+  box-shadow: var(--shadow);
+}
+
+.highlight-item:hover {
+  transform: translateX(6px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.highlight-item i {
+  font-size: 1.8rem;
+  color: var(--accent);
+  flex-shrink: 0;   /* Prevents icon from shrinking when text is long */
+  margin-top: 4px;
+}
+
+.highlight-item h5 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  color: var(--primary);
+}
+
+.highlight-item p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SKILLS SECTION
+   📚 LESSON: Bootstrap's .progress and .progress-bar
+   We override Bootstrap's default blue with our brand colour.
+   Then JavaScript animates the width from 0 to the data-width value.
+============================================================ */
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  height: 100%;
+  box-shadow: var(--shadow);
+  transition: box-shadow var(--transition);
+}
+
+.skill-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.skill-category {
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+}
+
+.skill-category i {
+  color: var(--accent);
+  margin-right: 10px;
+}
+
+.skill-item {
+  margin-bottom: 20px;
+}
+
+.skill-item span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.skill-pct {
+  color: var(--accent) !important;
+  font-weight: 700 !important;
+  /* !important overrides Bootstrap's utility class colour */
+}
+
+/* Override Bootstrap's default progress bar */
+.progress {
+  height: 8px;
+  background-color: var(--border);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 0;                  /* Start at 0 — JS animates to target width */
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 50px;
+  transition: width 1.2s ease-out;   /* Smooth fill animation */
+}
+
+/* Tech Badges */
+.badge-cloud {
+  display: flex;
+  flex-wrap: wrap;            /* Wraps to next line when full */
+  gap: 10px;
+  justify-content: center;
+}
+
+.tech-badge {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all var(--transition);
+  cursor: default;
+}
+
+.tech-badge:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(200, 151, 58, 0.06);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   PROJECT CARDS
+============================================================ */
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  height: 100%;
+  transition: all var(--transition);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative accent line at top */
+.project-card::before {
+  content: '';           /* content: '' is required for ::before/::after pseudo-elements */
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(0);  /* Hidden by default */
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.project-card:hover::before {
+  transform: scaleX(1);  /* Slides in on hover */
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(200,151,58,0.3);
+}
+
+.project-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, rgba(26,54,93,0.1), rgba(200,151,58,0.1));
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+
+.project-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  background: rgba(200,151,58,0.1);
+  padding: 4px 12px;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.project-card h4 {
+  font-size: 1.15rem;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+
+.project-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-tech span {
+  background: rgba(26,54,93,0.07);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+/* ============================================================
+   CONTACT SECTION
+============================================================ */
+.contact-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 48px;
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-item i {
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.contact-item small {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.contact-item a {
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  word-break: break-all;  /* Prevents long emails breaking layout */
+}
+
+.contact-item a:hover {
+  color: var(--accent);
+}
+
+/* Override Bootstrap form styles to match our brand */
+.form-control {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  background: var(--bg);
+}
+
+.form-control:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(200,151,58,0.15);
+  background: white;
+  outline: none;
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.site-footer {
+  background: var(--primary);
+  color: rgba(255,255,255,0.8);
+  padding: 32px 0;
+  text-align: center;
+}
+
+.site-footer strong {
+  color: var(--accent);
+}
+
+.footer-sub {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  margin: 6px 0 0;
+}
+
+/* ============================================================
+   SCROLL ANIMATIONS
+  
+============================================================ */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+[data-animate="fade-left"] {
+  transform: translateX(30px);
+}
+
+[data-animate].animated {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+
+@media (max-width: 992px) {
+  .section-pad {
+    padding: 70px 0;
+  }
+
+  .hero-name {
+    font-size: 2.8rem;
+  }
+
+  .contact-card {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-name {
+    font-size: 2.4rem;
+  }
+
+  .hero-desc {
+    max-width: 100%;
+  }
+
+  .skill-card {
+    padding: 24px;
+  }
+
+  .project-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-cta {
+    justify-content: center;
+  }
+
+  .hero-card-info {
+    justify-content: center;
+  }
+
+  .badge-cloud {
+    gap: 8px;
+  }
+}

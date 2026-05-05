@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+
+  <meta name="description" content="Harshitha Saraswathi R S — Cloud & DevOps Engineer, 3rd Year IT Student at SKCT">
+
+
+  <title>Harshitha Saraswathi R S</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts — clean, professional typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Our custom CSS — always load AFTER Bootstrap so we can override it -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+ 
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      
+      <a class="navbar-brand fw-bold" href="#hero">HS</a>
+      <!-- fw-bold = font-weight: bold (Bootstrap utility class) -->
+
+      <!-- Hamburger button — shown only on mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <!-- data-bs-* attributes are Bootstrap's JavaScript hooks -->
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- collapse = hidden on mobile; navbar-collapse = collapses properly -->
+        <ul class="navbar-nav ms-auto">
+          <!-- ms-auto = margin-start: auto = pushes links to the RIGHT -->
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+ 
+  <section id="hero">
+    <div class="hero-bg-shape"></div>
+    <div class="container h-100">
+      <!-- h-100 = height: 100% -->
+      <div class="row align-items-center h-100">
+        
+        <div class="col-lg-7 hero-text" data-animate="fade-up">
+          <span class="hero-tag">3rd Year IT Student · SKCT</span>
+          <h1 class="hero-name">Harshitha<br>Saraswathi R S</h1>
+          <p class="hero-subtitle">Cloud Infrastructure & DevOps Engineer</p>
+          <p class="hero-desc">
+            Designing scalable, secure cloud architectures with AWS & Terraform. 
+            Reducing deployment times by <strong>90%+</strong> through automation. 
+            B1 German proficiency · Targeting global cloud roles.
+          </p>
+          <div class="hero-cta d-flex gap-3 flex-wrap">
+            <!-- d-flex = display:flex | gap-3 = gap between items | flex-wrap = wrap on small screens -->
+            <a href="#contact" class="btn btn-primary-custom">Get In Touch</a>
+            <a href="#skills" class="btn btn-outline-custom">View Skills</a>
+          </div>
+        </div>
+
+        <div class="col-lg-5 text-center mt-5 mt-lg-0" data-animate="fade-left">
+          <!-- mt-5 = margin-top on small screens | mt-lg-0 = no margin on large screens -->
+          <div class="hero-card">
+            <div class="profile-photo-wrapper">
+              <!-- Replace profile.jpg with your actual photo file -->
+              <img src="profile.jpg" alt="Harshitha Saraswathi R S" class="profile-photo" 
+                   onerror="this.style.display='none'; document.getElementById('initials-fallback').style.display='flex'">
+              <div class="initials-fallback" id="initials-fallback">HS</div>
+            </div>
+            <div class="hero-card-info">
+              <div class="hero-stat">
+                <span class="stat-num" data-count="90">0</span><span>%+</span>
+                <small>Deployment Faster</small>
+              </div>
+              <div class="hero-stat">
+                <span class="stat-num" data-count="3">0</span><span>+</span>
+                <small>Cloud Projects</small>
+              </div>
+              <div class="hero-stat">
+                <span class="stat-icon">🇩🇪</span>
+                <small>B1 German</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    ABOUT SECTION
+  ============================================================ -->
+  <section id="about" class="section-pad">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-tag">Who I Am</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="row align-items-center g-5">
+        <!-- g-5 = gap between columns (Bootstrap gutter) -->
+        <div class="col-lg-6" data-animate="fade-up">
+          <p class="about-text">
+            I'm a 3rd-year Information Technology student at Sri Krishna College of Technology (SKCT), 
+            passionate about cloud infrastructure and DevOps automation. I don't just learn cloud concepts — 
+            I build with them.
+          </p>
+          <p class="about-text">
+            From designing multi-tier AWS architectures to writing Terraform modules that automate entire 
+            infrastructure pipelines, I've reduced deployment time by over 90% through Infrastructure as Code.
+          </p>
+          <p class="about-text">
+            Beyond tech, I bring strong leadership and cross-cultural communication — including B1 proficiency 
+            in German — making me ready for global cloud and infrastructure roles.
+          </p>
+        </div>
+        <div class="col-lg-6" data-animate="fade-left">
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <i class="bi bi-cloud-check"></i>
+              <div>
+                <h5>Cloud-First Mindset</h5>
+                <p>AWS certified knowledge with real project deployment experience</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <i class="bi bi-code-slash"></i>
+              <div>
+                <h5>Infrastructure as Code</h5>
+                <p>Terraform automation cutting deployment time by 90%+</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <i class="bi bi-people"></i>
+              <div>
+                <h5>Leader & Communicator</h5>
+                <p>Team leadership + B1 German for global collaboration</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="skills" class="section-pad bg-section">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-tag">What I Know</span>
+        <h2 class="section-title">Skills</h2>
+      </div>
+
+      <div class="row g-4">
+        <!-- g-4 = gap size 4 between all grid columns -->
+
+        <!-- Cloud & DevOps -->
+        <div class="col-lg-6" data-animate="fade-up">
+          <div class="skill-card">
+            <h4 class="skill-category"><i class="bi bi-cloud"></i> Cloud & DevOps</h4>
+            
+            <div class="skill-item">
+              <div class="d-flex justify-content-between mb-1">
+                <!-- d-flex + justify-content-between = space items to left and right -->
+                <span>AWS (EC2, S3, VPC, RDS, Lambda)</span>
+                <span class="skill-pct">66%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" data-width="66"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="d-flex justify-content-between mb-1">
+                <span>Terraform (IaC)</span>
+                <span class="skill-pct">37%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" data-width="37"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="d-flex justify-content-between mb-1">
+                <span>CI/CD Pipelines</span>
+                <span class="skill-pct">12%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" data-width="12"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="d-flex justify-content-between mb-1">
+                <span>Docker & Containerisation</span>
+                <span class="skill-pct">10%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" data-width="10"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Programming & Tools -->
+        <div class="col-lg-6" data-animate="fade-left">
+          <div class="skill-card">
+            <h4 class="skill-category"><i class="bi bi-braces"></i> Programming & Tools</h4>
+
+            <div class="skill-item">
+              <div class="d-flex justify-content-between mb-1">
+                <span>Python</span>
+                <span class="skill-pct">40%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" data-width="40"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="d-flex justify-content-between mb-1">
+                <span>Linux / Bash Scripting</span>
+                <span class="skill-pct">58%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" data-width="58"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="d-flex justify-content-between mb-1">
+                <span>HTML, CSS, JavaScript</span>
+                <span class="skill-pct">65%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" data-width="65"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="d-flex justify-content-between mb-1">
+                <span>German (B1)</span>
+                <span class="skill-pct">70%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" data-width="70"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badges Row -->
+        <div class="col-12 mt-2" data-animate="fade-up">
+          <div class="badge-cloud">
+            <span class="tech-badge"><i class="bi bi-amazon"></i> AWS</span>
+            <span class="tech-badge">Terraform</span>
+            <span class="tech-badge">Docker</span>
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Linux</span>
+            <span class="tech-badge">CI/CD</span>
+            <span class="tech-badge">VPC</span>
+            <span class="tech-badge">S3</span>
+            <span class="tech-badge">EC2</span>
+            <span class="tech-badge">RDS</span>
+            <span class="tech-badge">Lambda</span>
+            <span class="tech-badge">🇩🇪 German B1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+
+    <!-- ============================================================
+      PROJECTS & EXPERIENCE SECTION
+    ============================================================ -->
+  <section id="experience" class="section-pad">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-tag">What I've Built</span>
+        <h2 class="section-title">Projects & Experience</h2>
+      </div>
+
+      <div class="row justify-content-center g-4">   <!-- Centered Row -->
+
+        <div class="col-lg-8 col-md-10" data-animate="fade-up">
+          <div class="project-card">
+            <div class="project-icon"><i class="bi bi-diagram-3"></i></div>
+            <span class="project-tag">AWS · Terraform</span>
+            <h4>Scalable Cloud Architecture</h4>
+            <p>Designed and deployed a multi-tier AWS architecture using Terraform IaC. Implemented auto-scaling, load balancing, and secure VPC configurations — cutting deployment time by 90%+.</p>
+            <div class="project-tech">
+              <span>EC2</span><span>VPC</span><span>Terraform</span><span>ALB</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- <section id="experience" class="section-pad">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-tag">What I've Built</span>
+        <h2 class="section-title">Projects & Experience</h2>
+      </div> -->
+
+      <!-- <div class="row g-4"> -->
+
+        <!-- <div class="col-lg-4 col-md-6" data-animate="fade-up"> -->
+          <!-- col-lg-4 = 4/12 cols on large screens | col-md-6 = 6/12 on medium = 2 per row -->
+          <!-- <div class="project-card">
+            <div class="project-icon"><i class="bi bi-diagram-3"></i></div>
+            <span class="project-tag">AWS · Terraform</span>
+            <h4>Scalable Cloud Architecture</h4>
+            <p>Designed and deployed a multi-tier AWS architecture using Terraform IaC. Implemented auto-scaling, load balancing, and secure VPC configurations — cutting deployment time by 90%+.</p>
+            <div class="project-tech">
+              <span>EC2</span><span>VPC</span><span>Terraform</span><span>ALB</span>
+            </div>
+          </div> -->
+        <!-- </div> -->
+<!-- 
+        <div class="col-lg-4 col-md-6" data-animate="fade-up" style="animation-delay: 0.1s">
+          <div class="project-card">
+            <div class="project-icon"><i class="bi bi-arrow-repeat"></i></div>
+            <span class="project-tag">DevOps · CI/CD</span>
+            <h4>Automated Deployment Pipeline</h4>
+            <p>Built a complete CI/CD pipeline integrating automated testing, Docker containerisation, and cloud deployment — enabling zero-downtime releases and consistent delivery.</p>
+            <div class="project-tech">
+              <span>Docker</span><span>CI/CD</span><span>Python</span><span>AWS</span>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="col-lg-4 col-md-6" data-animate="fade-up" style="animation-delay: 0.2s">
+          <div class="project-card">
+            <div class="project-icon"><i class="bi bi-shield-check"></i></div>
+            <span class="project-tag">Security · Architecture</span>
+            <h4>Secure Infrastructure Design</h4>
+            <p>Architected secure cloud environments with IAM policies, security groups, private subnets, and encrypted S3 storage — following AWS security best practices throughout.</p>
+            <div class="project-tech">
+              <span>IAM</span><span>S3</span><span>RDS</span><span>Lambda</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section> -->
+
+  <!-- ============================================================
+    CONTACT SECTION
+  ============================================================ -->
+  <section id="contact" class="section-pad bg-section">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-tag">Let's Connect</span>
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
+
+      <div class="row justify-content-center">
+        <!-- justify-content-center = horizontally center the columns -->
+        <div class="col-lg-8" data-animate="fade-up">
+          <div class="contact-card">
+
+            <div class="row g-4 mb-4">
+              <div class="col-md-4">
+                <div class="contact-item">
+                  <i class="bi bi-telephone"></i>
+                  <div>
+                    <small>Phone</small>
+                    <a href="tel:+918610202549">+91 86102 02549</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="contact-item">
+                  <i class="bi bi-envelope"></i>
+                  <div>
+                    <small>Email</small>
+                    <a href="mailto:harshithasaraswathirs@gmail.com">harshithasaraswathirs@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="contact-item">
+                  <i class="bi bi-linkedin"></i>
+                  <div>
+                    <small>LinkedIn</small>
+                    <a href="https://linkedin.com/in/harshithasaraswathirs" target="_blank">harshithasaraswathirs</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+           
+            <form id="contactForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="senderName">Your Name</label>
+                  <!-- form-label = Bootstrap label styling -->
+                  <input type="text" class="form-control" id="senderName" placeholder="Jane Smith" required>
+                  <!-- form-control = Bootstrap input styling | required = HTML validation -->
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="senderEmail">Your Email</label>
+                  <input type="email" class="form-control" id="senderEmail" placeholder="jane@company.com" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="message">Message</label>
+                  <textarea class="form-control" id="message" rows="4" placeholder="I'd love to discuss a cloud role..." required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary-custom w-100">
+                    <!-- w-100 = width: 100% -->
+                    <i class="bi bi-send me-2"></i>Send Message
+                  </button>
+                </div>
+                <!-- Success message — hidden until form is submitted -->
+                <div class="col-12" id="formSuccess" style="display:none;">
+                  <div class="alert alert-success">
+                    <!-- alert + alert-success = Bootstrap green success box -->
+                    <i class="bi bi-check-circle me-2"></i>
+                    Message noted! Harshitha will get back to you soon.
+                  </div>
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+т
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    FOOTER
+  ============================================================ -->
+  <footer class="site-footer">
+    <div class="container text-center">
+      <p class="mb-0">Designed & built by <strong>Harshitha Saraswathi R S</strong></p>
+      <p class="footer-sub">3rd Year IT · SKCT · Cloud & DevOps</p>
+    </div>
+  </footer>
+
+  
+
+  <!-- Bootstrap JS Bundle (includes Popper.js for dropdowns/tooltips) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Our custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
